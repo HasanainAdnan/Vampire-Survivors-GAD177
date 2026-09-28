@@ -66,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
         {
-            // Set the vertical movement direction to move down.
             y = -1f;
         }
 
@@ -76,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
-            // Set the horizontal movement direction to move left.
             x = -1f;
         }
 
@@ -86,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
-            // Set the horizontal movement direction to move right.
             x = 1f;
         }
 
