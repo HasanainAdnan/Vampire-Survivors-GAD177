@@ -224,7 +224,7 @@ public class PlayerHealth : MonoBehaviour
 
         // TODO: Check whether the player's health is below zero.
         // If it is, set the player's health to zero.
-        if (currentHP < 0)
+        if (currentHP <= 0)
         {
             currentHP = 0;
         }
@@ -266,7 +266,7 @@ public class PlayerHealth : MonoBehaviour
 
         // TODO: Check whether the player's health is greater than maxHP.
         // If it is, set it back to maxHP.
-        if (currentHP > maxHP)
+        if (currentHP >= maxHP)
         {
             currentHP = maxHP;
         }
