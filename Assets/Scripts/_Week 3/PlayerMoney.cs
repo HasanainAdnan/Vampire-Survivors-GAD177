@@ -153,8 +153,6 @@ public class PlayerMoney : MonoBehaviour
         // and the player's current money.
         moneyText.text = moneyPrefix + currentMoney.ToString();
 
-
-
         if (gameOverMoneyText != null)
         {
             // TODO: Display the player's current money

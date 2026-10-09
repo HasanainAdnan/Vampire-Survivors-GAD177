@@ -120,12 +120,13 @@ public class PlayerKills : MonoBehaviour
 
         // TODO: Update the kills text using killsPrefix
         // and the player's current kills.
-        killsText.text = killsPrefix + currentKills.ToString();
-
+        
         if (killsText == null)
         {
             return;
         }
+
+        killsText.text = killsPrefix + currentKills.ToString();
 
         if (gameOverKillsText != null)
         {
