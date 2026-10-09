@@ -52,8 +52,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,7 +73,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -227,6 +224,9 @@ MonoBehaviour:
   xpReward: 5
   moneyReward: 1
   killReward: 1
+  playerExperience: {fileID: 0}
+  playerMoney: {fileID: 0}
+  playerKills: {fileID: 0}
   coinPrefab: {fileID: 5612716690806517058, guid: b4a1302468ac2b240b964808c28c07ee, type: 3}
   coinsToDrop: 1
   coinDropChance: 0.5
@@ -235,15 +235,12 @@ MonoBehaviour:
   useHitFlash: 1
   hitFlashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
-  hitParticlePrefab: {fileID: 0}
-  hitParticleLifetime: 1
-  hitSound: {fileID: 8300000, guid: 0f5a45f6cc2087f488113e76105a616d, type: 3}
-  deathParticlePrefab: {fileID: 0}
-  deathParticleLifetime: 2
-  deathSound: {fileID: 0}
   audioSource: {fileID: -745724542126164848}
-  enemySpawner: {fileID: 0}
-  stopSpawnerOnDeath: 1
+  hitSound: {fileID: 8300000, guid: 0f5a45f6cc2087f488113e76105a616d, type: 3}
+  deathSound: {fileID: 0}
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   enableDebugKeys: 1
   showDebugLogs: 1
   debugDamageKey: 35

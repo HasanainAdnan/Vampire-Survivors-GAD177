@@ -29,27 +29,32 @@ public class PauseMenu : MonoBehaviour
         {
             // TODO: Check if the game is paused.
             // If it is, call ResumeGame().
-            // Otherwise, call PauseGame().
-
-
+            if (isPaused == true)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
         }
     }
 
     public void PauseGame()
     {
         // TODO: Set isPaused to true.
-
-
+        isPaused = true;
 
         // TODO: Show the pause menu.
         // Hint: Use the .SetActive() function.
-
+        pauseMenu.SetActive(true);
 
 
         // Pause the game.
         Time.timeScale = 0f;
 
         // TODO: Print "Game Paused" to the Console.
+        Debug.Log("Game Paused");
 
 
     }
@@ -58,19 +63,18 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         // TODO: Set isPaused to false.
-
-
+        isPaused = false;
 
         // TODO: Hide the pause menu.
         // Hint: Use the .SetActive() function.
-
+        pauseMenu.SetActive(false);
 
 
         // Resume the game.
         Time.timeScale = 1f;
 
         // TODO: Print "Game Resumed" to the Console.
-
+        Debug.Log("Game Resumed");
 
     }
 

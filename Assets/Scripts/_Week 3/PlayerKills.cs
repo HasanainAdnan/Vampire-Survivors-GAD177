@@ -27,6 +27,7 @@ public class PlayerKills : MonoBehaviour
     private void Start()
     {
         // TODO: Call the function that updates the kills UI.
+        UpdateKillsUI();
 
 
 
@@ -56,6 +57,7 @@ public class PlayerKills : MonoBehaviour
         if (Keyboard.current[addKillKey].wasPressedThisFrame)
         {
             // TODO: Call AddKills and give it debugAddAmount.
+            AddKills(debugAddAmount);
 
 
         }
@@ -65,6 +67,7 @@ public class PlayerKills : MonoBehaviour
         if (Keyboard.current[resetKillsKey].wasPressedThisFrame)
         {
             // TODO: Call ResetKills.
+            ResetKills();
 
 
         }
@@ -78,21 +81,24 @@ public class PlayerKills : MonoBehaviour
         }
 
         // TODO: Add amount to the player's current kills.
+        currentKills += amount;
 
 
 
         // TODO: Call the function that updates the kills UI.
-
+        UpdateKillsUI();
 
     }
 
     public void ResetKills()
     {
         // TODO: Set the player's current kills back to 0.
+        currentKills = 0;
 
 
 
         // TODO: Call the function that updates the kills UI.
+        UpdateKillsUI();
 
 
     }
@@ -100,6 +106,7 @@ public class PlayerKills : MonoBehaviour
     public void DebugAddKill()
     {
         // TODO: Call AddKills and give it debugAddAmount.
+        AddKills(debugAddAmount);
 
 
     }
@@ -113,6 +120,7 @@ public class PlayerKills : MonoBehaviour
 
         // TODO: Update the kills text using killsPrefix
         // and the player's current kills.
+        killsText.text = killsPrefix + currentKills.ToString();
 
         if (killsText == null)
         {
@@ -123,6 +131,7 @@ public class PlayerKills : MonoBehaviour
         {
             // TODO: Display the player's total kills
             // on the Game Over screen.
+            gameOverKillsText.text = killsPrefix + currentKills.ToString();
 
 
         }

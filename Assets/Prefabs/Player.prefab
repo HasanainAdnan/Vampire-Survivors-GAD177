@@ -504,18 +504,19 @@ MonoBehaviour:
   useDeathAnimation: 1
   deathAnimationName: Death
   deathDelay: 1.2
-  gameOverUI: {fileID: 0}
-  pauseOnDeath: 1
   disableMovementOnDeath: 1
   disableAttackOnDeath: 1
   movement: {fileID: 0}
   meleeAutoAttack: {fileID: 0}
+  gameManager: {fileID: 0}
   enableDebugKeys: 1
   showDebugLogs: 1
   debugDamageKey: 25
-  debugDamageAmount: 1
+  minimumDebugDamage: 1
+  maximumDebugDamage: 3
   debugHealKey: 26
-  debugHealAmount: 1
+  minimumDebugHeal: 1
+  maximumDebugHeal: 3
 --- !u!114 &8667591997282453061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +539,7 @@ MonoBehaviour:
   enableDebugKeys: 1
   debugXpAmount: 1
   debugKey: 24
+  gameOverLevelText: {fileID: 0}
 --- !u!114 &3829824428525352384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,6 +563,7 @@ MonoBehaviour:
   debugSpendAmount: 5
   addMoneyKey: 27
   spendMoneyKey: 28
+  gameOverMoneyText: {fileID: 0}
 --- !u!114 &8494038984796728227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +585,7 @@ MonoBehaviour:
   debugAddAmount: 1
   addKillKey: 16
   resetKillsKey: 36
+  gameOverKillsText: {fileID: 0}
 --- !u!114 &732276342429816324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,29 +598,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce77396f08876d34eaac4cf55d8ca39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SingleMeleeAutoAttack
-  movement: {fileID: 1948031967530412625}
   slashPrefab: {fileID: 5884366361490614676, guid: 9ddeee9b8ffc7d24fb2b021be4ea7d20, type: 3}
-  weaponName: Sword
-  weaponLevel: 1
-  baseDamage: 5
-  damagePerLevel: 2
-  baseCooldown: 1
-  cooldownPerLevel: -0.1
-  slashDistance: 1.25
-  minAimMagnitude: 0.1
-  baseSlashScale: 1
-  scalePerLevel: 0.025
-  distancePerLevel: 0.025
-  useMouseAim: 1
-  lastAimDirection: {x: 1, y: 0}
-  autoAttackEnabled: 1
-  enableDebugKeys: 1
+  playerSpriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  useAttackAnimation: 1
+  attackTriggerName: Attack
+  facingRight: 1
+  faceRightByDefault: 1
+  attacksEnabled: 1
+  damage: 5
+  cooldown: 1
+  slashOffsetX: 1
+  slashOffsetY: 0
+  flipSlashWhenFacingLeft: 1
   showDebugLogs: 1
-  fireOnceKey: 20
-  levelUpKey: 21
-  levelDownKey: 22
-  allowLevelDownInDebug: 1
-  debugCurrentCooldown: 0
+  attackTimer: 0
 --- !u!95 &6606969195739813279
 Animator:
   serializedVersion: 7
@@ -824,8 +820,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -847,7 +841,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
