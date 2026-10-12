@@ -312,6 +312,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1854617384}
     - target: {fileID: 8920733270119472732, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920733270119472732, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 896476624}
