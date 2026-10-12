@@ -39,6 +39,10 @@ public class SingleMeleeAutoAttack : MonoBehaviour
     {
         // TODO: Check if playerSpriteRenderer is null.
         // If it is, get the SpriteRenderer from this GameObject or its children.
+        if (playerSpriteRenderer == null)
+        {
+            playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
 
 
 
@@ -49,6 +53,7 @@ public class SingleMeleeAutoAttack : MonoBehaviour
         }
 
         // TODO: Set the attack timer to the cooldown value.
+        attackTimer = cooldown;
 
 
 
@@ -75,12 +80,14 @@ public class SingleMeleeAutoAttack : MonoBehaviour
         if (faceRightByDefault == true)
         {
             // TODO: Set facingRight based on whether the SpriteRenderer is flipped.
+            facingRight = !playerSpriteRenderer.flipX;
 
 
         }
         else
         {
             // TODO: Set facingRight based on whether the SpriteRenderer is flipped.
+            facingRight = !playerSpriteRenderer.flipX;
 
 
         }
@@ -100,10 +107,12 @@ public class SingleMeleeAutoAttack : MonoBehaviour
         if (attackTimer <= 0f)
         {
             // TODO: Call the Attack function.
+            Attack();
 
 
 
             // TODO: Reset attackTimer to the cooldown value.
+            attackTimer = cooldown;
 
 
         }
@@ -112,10 +121,12 @@ public class SingleMeleeAutoAttack : MonoBehaviour
     private void Attack()
     {
         // TODO: Call the function that performs the melee slash.
+        PerformSlash();
 
 
 
         // TODO: Call the function that plays the attack animation.
+        PlayAttackAnimation();
 
 
     }
@@ -176,6 +187,10 @@ public class SingleMeleeAutoAttack : MonoBehaviour
 
             // TODO: Check that slashRenderer is not null.
             // If it exists, set its flipX value based on facingRight.
+            if (slashRenderer != null)
+            {
+                slashRenderer.flipX = !facingRight;
+            }
 
 
         }
@@ -185,6 +200,10 @@ public class SingleMeleeAutoAttack : MonoBehaviour
 
         // TODO: Check that slash is not null.
         // If it exists, call Initialize and give it the player's damage.
+        if (slash != null)
+        {
+            slash.Initialize(damage);
+        }
 
 
         if (showDebugLogs == true)
