@@ -15,7 +15,7 @@ public class MeleeSlash : MonoBehaviour
     private void Awake()
     {
         // TODO: Get the Collider2D component from this GameObject.
-        Collider2D col = null;
+        Collider2D col = GetComponent<Collider2D>();
 
         // TODO: Check that col is not null.
         // If it exists, set it to be a trigger.
