@@ -44,8 +44,6 @@ public class SingleMeleeAutoAttack : MonoBehaviour
             playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
-
-
         // Get the Animator if one has not been assigned.
         if (animator == null)
         {
@@ -82,13 +80,11 @@ public class SingleMeleeAutoAttack : MonoBehaviour
             // TODO: Set facingRight based on whether the SpriteRenderer is flipped.
             facingRight = !playerSpriteRenderer.flipX;
 
-
         }
         else
         {
             // TODO: Set facingRight based on whether the SpriteRenderer is flipped.
             facingRight = playerSpriteRenderer.flipX;
-
 
         }
     }

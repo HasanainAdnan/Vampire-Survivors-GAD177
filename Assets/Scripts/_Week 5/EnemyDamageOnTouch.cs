@@ -25,6 +25,10 @@ public class EnemyDamageOnTouch : MonoBehaviour
     {
         // TODO: Check if audioSource is null.
         // If it is, get the AudioSource component from this GameObject.
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
 
     }
@@ -34,12 +38,16 @@ public class EnemyDamageOnTouch : MonoBehaviour
         // TODO: Check whether the object involved in the collision
         // has the Player tag.
         // If it does not, stop this function.
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
 
 
 
         // TODO: Get the PlayerHealth component from the
         // object involved in the collision.
-        PlayerHealth playerHealth = null;
+        PlayerHealth playerHealth = collision.collider.GetComponent<PlayerHealth>();
 
 
 
@@ -48,18 +56,22 @@ public class EnemyDamageOnTouch : MonoBehaviour
         // - Damage the player using contactDamage.
         // - Call PlayHitSound.
         // - Print the damage dealt if debug logs are enabled.
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(contactDamage);
+            PlayHitSound();
 
-
-
-
+            if (showDebugLogs == true)
+            {
+                Debug.Log("EnemyDamageOnTouch: Damaged Player for " + contactDamage);
+            }
+        }
 
         // TODO: Check whether knockback is enabled.
         if (applyKnockback == true)
         {
             // TODO: Get the Rigidbody2D attached to the player's collider.
-            Rigidbody2D playerRb = null;
-
-
+            Rigidbody2D playerRb = collision.collider.GetComponent<Rigidbody2D>();
 
             // TODO: Check that playerRb is not null.
             if (playerRb != null)
@@ -71,13 +83,14 @@ public class EnemyDamageOnTouch : MonoBehaviour
                 Vector2 targetPosition = playerRb.position + direction * knockbackDistance;
 
                 // TODO: Move the player's Rigidbody2D to targetPosition. Hint you'll need to use the Move Function of rigidbody.
-
-
+                playerRb.MovePosition(targetPosition);
 
                 // TODO: If debug logs are enabled,
                 // print the new knockback position.
-
-
+                if (showDebugLogs == true)
+                {
+                    Debug.Log("EnemyDamageOnTouch: Knockback Player to " + targetPosition);
+                }
             }
         }
     }
@@ -86,21 +99,28 @@ public class EnemyDamageOnTouch : MonoBehaviour
     {
         // TODO: Check whether audioSource is null.
         // If it is, stop this function.
-
-
+        if (audioSource == null)
+        {
+            return;
+        }
 
         // TODO: Check whether hitSound is null.
         // If it is, stop this function.
-
-
+        if (hitSound == null)
+        {
+            return;
+        }
 
         // TODO: Play hitSound using the AudioSource
         // and the hitSoundVolume.
-
-
+        audioSource.PlayOneShot(hitSound, hitSoundVolume);
 
         // TODO: If debug logs are enabled,
         // print that the hit sound played.
+        if (showDebugLogs == true)
+        {
+            Debug.Log("EnemyDamageOnTouch: Played Hit Sound");
+        }
 
 
     }

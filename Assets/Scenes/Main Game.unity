@@ -272,6 +272,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 896476626}
     - target: {fileID: 3829824428525352384, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: addMoneyKey
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829824428525352384, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: spendMoneyKey
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829824428525352384, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: gameOverMoneyText
       value: 
       objectReference: {fileID: 1453775657}
@@ -288,9 +296,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 896476625}
     - target: {fileID: 8494038984796728227, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: addKillKey
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494038984796728227, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: resetKillsKey
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494038984796728227, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: gameOverKillsText
       value: 
       objectReference: {fileID: 386612962}
+    - target: {fileID: 8667591997282453061, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: debugKey
+      value: 42
+      objectReference: {fileID: 0}
     - target: {fileID: 8667591997282453061, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: xpSlider
       value: 
@@ -323,6 +343,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 787735814}
+    - target: {fileID: 8920733270119472732, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: debugDamageKey
+      value: 41
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
