@@ -2,71 +2,56 @@ using UnityEngine;
 
 public class CameraFollow2D : MonoBehaviour
 {
-    [Header("Target")]
-    public Transform target; // Drag the Player here
+    public Transform target;
+    public float rightOffset = 3f;
+    public float lookAhead = 1.5f;
+    public float smoothTime = 0.25f;
 
-    [Header("Follow Settings")]
-    public bool useSmoothFollow = true;
-    public float followSpeed = 5f;
+    public bool lockY = true;
+    public float fixedY = 1f;
 
-    [Header("Camera Bounds")]
-    public bool useBounds = true;
+    public bool useLeftLimit = false;
+    public float leftLimitX = -10f;
 
-    public float minX = -10f;
-    public float maxX = 10f;
-    public float minY = -5f;
-    public float maxY = 5f;
-
-    private float cameraZ;
+    private Rigidbody2D targetRb;
+    private float velX;
+    private float velY;
+    private float currentLook;
 
     private void Start()
     {
-        cameraZ = transform.position.z;
+        if (target != null)
+        {
+            targetRb = target.GetComponent<Rigidbody2D>();
+        }
     }
 
     private void LateUpdate()
     {
         if (target == null)
+        {
             return;
-
-        Vector3 targetPosition = new Vector3(
-            target.position.x,
-            target.position.y,
-            cameraZ
-        );
-
-        if (useBounds)
-        {
-            targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
-            targetPosition.y = Mathf.Clamp(targetPosition.y, minY, maxY);
         }
 
-        if (useSmoothFollow)
+        float moveDir = 0f;
+        if (targetRb != null)
         {
-            transform.position = Vector3.Lerp(
-                transform.position,
-                targetPosition,
-                followSpeed * Time.deltaTime
-            );
+            moveDir = Mathf.Clamp(targetRb.linearVelocity.x / 5f, -1f, 1f);
         }
-        else
+
+        currentLook = Mathf.Lerp(currentLook, moveDir * lookAhead, Time.deltaTime * 2f);
+
+        float targetX = target.position.x + rightOffset + currentLook;
+        if (useLeftLimit)
         {
-            transform.position = targetPosition;
+            targetX = Mathf.Max(targetX, leftLimitX);
         }
-    }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
+        float targetY = lockY ? fixedY : target.position.y;
 
-        Vector3 bottomLeft = new Vector3(minX, minY, 0f);
-        Vector3 topLeft = new Vector3(minX, maxY, 0f);
-        Vector3 topRight = new Vector3(maxX, maxY, 0f);
-        Vector3 bottomRight = new Vector3(maxX, minY, 0f);
-
-        Gizmos.DrawLine(bottomLeft, topLeft);
-        Gizmos.DrawLine(topLeft, topRight);
-        Gizmos.DrawLine(topRight, bottomRight);
-        Gizmos.DrawLine(bottomRight, bottomLeft);
+        Vector3 pos = transform.position;
+        pos.x = Mathf.SmoothDamp(pos.x, targetX, ref velX, smoothTime);
+        pos.y = Mathf.SmoothDamp(pos.y, targetY, ref velY, smoothTime);
+        transform.position = pos;
     }
 }

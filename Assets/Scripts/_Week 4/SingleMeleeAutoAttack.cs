@@ -124,6 +124,12 @@ public class SingleMeleeAutoAttack : MonoBehaviour
         // TODO: Call the function that plays the attack animation.
         PlayAttackAnimation();
 
+        PlayerAnimator anim = GetComponent<PlayerAnimator>();
+        if (anim != null)
+        {
+            anim.Punch();
+        }
+
 
     }
 

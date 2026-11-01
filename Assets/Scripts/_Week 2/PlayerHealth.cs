@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     public bool disableAttackOnDeath = true;
 
     [Header("References")]
-    public PlayerMovement movement;
+    public PlayerController movement;
     public SingleMeleeAutoAttack meleeAutoAttack;
     public GameManager gameManager;
 
@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (movement == null)
         {
-            movement = GetComponent<PlayerMovement>();
+            movement = GetComponent<PlayerController>();
         }
 
         if (meleeAutoAttack == null)
@@ -178,13 +178,13 @@ public class PlayerHealth : MonoBehaviour
         // TODO: Give damageAmount a random value between
         // minimumDebugDamage and maximumDebugDamage.
         // Include both the minimum and maximum values.
-        
+
         int damageAmount = Random.Range(minimumDebugDamage, maximumDebugDamage + 1);
 
         // TODO: Print the randomly generated damage amount to the Console.
         if (showDebugLogs == true)
         {
-           Debug.Log("PlayerHealth: taking damage " + damageAmount); 
+            Debug.Log("PlayerHealth: taking damage " + damageAmount);
         }
 
 
@@ -196,7 +196,7 @@ public class PlayerHealth : MonoBehaviour
         // TODO: Give healAmount a random value between
         // minimumDebugHeal and maximumDebugHeal.
         // Include both the minimum and maximum values.
-        
+
         int healAmount = Random.Range(minimumDebugHeal, maximumDebugHeal + 1);
 
 
