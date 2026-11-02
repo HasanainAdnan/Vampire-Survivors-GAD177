@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\No Modifications Requried\CameraFollow2D.cs" />
     <Compile Include="Assets\Scripts\_Week 4\PlayerExperience.cs" />
-    <Compile Include="Assets\Scripts\_Week 2\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\_Week 4\MeleeSlash.cs" />
     <Compile Include="Assets\Scripts\_Week 8\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\_Week 3\PauseMenu.cs" />
@@ -61,6 +60,8 @@
     <Compile Include="Assets\Scripts\_Week 4\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\_Week 5\EnemyDamageOnTouch.cs" />
     <Compile Include="Assets\Scripts\_Week 5\PlayerHealthTouchEffect.cs" />
+    <Compile Include="Assets\Scripts\_Week 2\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\_Week 3\PlayerMoney.cs" />
     <Compile Include="Assets\Scripts\_Week 6\EnemyChase.cs" />
     <Compile Include="Assets\Scripts\_Week 5\CoinPickup.cs" />
